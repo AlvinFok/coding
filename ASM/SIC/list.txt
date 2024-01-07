@@ -1,0 +1,130 @@
+Location      Label         Opcode        Argument      Objectcode   
+0             START         START         0                           
+0000          REG_L         RESW          1                           
+0003                        LDS           #3            6d0003        
+0006                        +JSUB         INIT          4b300122      
+000a          INDEX         WORD          0             000000        
+000d          ANSID         WORD          0             000000        
+0010          GCD_LOOP      +JSUB         GCD           4b3000af      
+0014                        LDA           INDEX         032ff3        
+0017                        ADD           #6            190006        
+001a                        STA           INDEX         0f2fed        
+001d                        LDA           ANSID         032fed        
+0020                        ADD           #6            190006        
+0023                        STA           ANSID         0f2fe7        
+0026                        LDA           #30           010030        
+0029                        COMP          INDEX         2b2fde        
+002c                        JGT           GCD_LOOP      372fe1        
+002f                        CLEAR         A             B400          
+0031                        STA           INDEX         0f2fd6        
+0034                        STA           ANSID         0f2fd6        
+0037          LCM_LOOP      +JSUB         LCM           4b300044      
+003b                        LDA           #30           010030        
+003e                        COMP          INDEX         2b2fc9        
+0041                        JGT           LCM_LOOP                    
+
+
+0044          LCM           STL           REG_L         172fb9        
+0047                        LDX           INDEX         072fc0        
+004a                        LDA           INPUT,X       03a0b7        
+004d                        STA           NUM1          0f2076        
+0050                        ADDR          S,X           9041          
+0052                        LDA           INPUT,X       03a0af        
+0055                        STA           NUM2          0f2071        
+0058                        ADDR          S,X           9041          
+005a                        STX           INDEX         132fad        
+005d                        LDA           NUM1          032066        
+0060          FACTOR        RESW          1                           
+0063                        LDX           ANSID         072fa7        
+0066                        LDA           ANS,X         03a028        
+0069                        STA           FACTOR        0f2ff4        
+006c                        ADDR          S,X           9041          
+006e                        STX           ANSID                       
+
+0071                        LDA           NUM1          032052        
+0074                        DIV           FACTOR        272fe9        
+0077                        STA           NUM1          0f204c        
+007a                        LDA           NUM2          03204c        
+007d                        DIV           FACTOR        272fe0        
+0080                        MUL           NUM1          232043        
+0083                        MUL           FACTOR                      
+
+0086                        STA           ANS,X         0fa008        
+0089                        ADDR          S,X           9041          
+008b                        STX           ANSID         132f7f        
+008e                        J             @REG_L                      
+
+
+
+0091          ANS           RESW          10                          
+00af          GCD           STL           REG_L         172f4e        
+00b2                        LDX           INDEX                       
+
+00b5                        LDA           INPUT,X       03a04c        
+00b8                        STA           NUM1          0f200b        
+00bb                        ADDR          S,X           9041          
+00bd                        LDA           INPUT,X       03a044        
+00c0                        STA           NUM2          0f2006        
+00c3          REMAIN        RESW          1                           
+00c6          NUM1          RESW          1                           
+00c9          NUM2          RESW          1                           
+00cc          QUOTIENT      RESW          1                           
+00cf          LOOP          LDA           NUM1          032ff4        
+00d2                        DIV           NUM2          272ff4        
+00d5                        STA           QUOTIENT                    
+
+00d8                        LDA           NUM2          032fee        
+00db                        MUL           QUOTIENT      232fee        
+00de                        LDL           NUM1          0b2fe5        
+00e1                        SUBR          A,L           9402          
+00e3                        STL           REMAIN        172fdd        
+00e6                        LDA           NUM2          032fe0        
+00e9                        STA           NUM1          0f2fda        
+00ec                        STL           NUM2          172fda        
+00ef                        LDA           #0            010000        
+00f2                        COMP          REMAIN        2b2fce        
+00f5                        JLT           LOOP                        
+
+00f8                        LDA           NUM1          032fcb        
+00fb                        LDX           ANSID         072f0f        
+00fe                        STA           ANS,X         0faf90        
+0101                        JEQ           @REG_L                      
+
+0104          INPUT         RESW          10                          
+0122          INIT          STL           REG_L         172edb        
+0125                        LDA           #15           010015        
+0128                        STA           INPUT,X       0fafd9        
+012b                        ADDR          S,X           9041          
+012d                        LDA           #30           010030        
+0130                        STA           INPUT,X       0fafd1        
+0133                        ADDR          S,X           9041          
+0135                        LDA           #34           010034        
+0138                        STA           INPUT,X       0fafc9        
+013b                        ADDR          S,X           9041          
+013d                        LDA           #51           010051        
+0140                        STA           INPUT,X       0fafc1        
+0143                        ADDR          S,X           9041          
+0145                        LDA           #60           010060        
+0148                        STA           INPUT,X       0fafb9        
+014b                        ADDR          S,X           9041          
+014d                        LDA           #21           010021        
+0150                        STA           INPUT,X       0fafb1        
+0153                        ADDR          S,X           9041          
+0155                        LDA           #199          010199        
+0158                        STA           INPUT,X       0fafa9        
+015b                        ADDR          S,X           9041          
+015d                        LDA           #99           010099        
+0160                        STA           INPUT,X       0fafa1        
+0163                        ADDR          S,X           9041          
+0165                        LDA           #63           010063        
+0168                        STA           INPUT,X       0faf99        
+016b                        ADDR          S,X           9041          
+016d                        LDA           #63           010063        
+0170                        STA           INPUT,X       0faf91        
+0173                        ADDR          S,X           9041          
+0175                        J             @REG_L                      
+
+
+0178          BB            LDA           #3            010003        
+017b          AA            RESW          100                         
+02a7                        END           START                       

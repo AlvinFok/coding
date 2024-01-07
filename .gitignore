@@ -1,0 +1,10 @@
+.mp4
+.zip
+.mlmodel
+.model
+.sframe
+.mlmodel/
+.model/
+.sframe/
+.DS_Store
+/venv
