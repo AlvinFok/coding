@@ -1,0 +1,6 @@
+commonLabels:
+  app: elastic
+resources:
+- deployment.yml
+- service-kibana.yml
+- serivce-elasticsearch.yml

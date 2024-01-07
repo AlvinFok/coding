@@ -1,0 +1,18 @@
+"use strict";
+exports.__esModule = true;
+var Wafer_1 = require("./Wafer");
+var APC_1 = require("./APC");
+var ProcessTool_1 = require("./ProcessTool");
+var apc = new APC_1.APC();
+var processTool_a = new ProcessTool_1.ProcessTool('A');
+var processTool_b = new ProcessTool_1.ProcessTool('B');
+var processTool_c = new ProcessTool_1.ProcessTool('C');
+var wafer1 = new Wafer_1.Wafer('N12345.00');
+var wafer2 = new Wafer_1.Wafer('N54321.00');
+var wafer3 = new Wafer_1.Wafer('N11111.00');
+apc.execute(wafer1, processTool_a);
+apc.execute(wafer2, processTool_b);
+apc.execute(wafer3, processTool_c);
+//var anotherAPC = new AnotherAPC();
+//anotherAPC.execute(wafer1, processTool_a);
+//anotherAPC.execute(wafer2, processTool_b);

@@ -1,0 +1,7 @@
+commonLabels:
+  app: Grafana
+resources:
+- deployment.yml
+- service-grafana.yaml
+- configmap.yml
+
