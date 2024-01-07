@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "string": "cpp",
+        "iosfwd": "cpp",
+        "map": "cpp",
+        "__cxx_version": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "queue": "cpp",
+        "random": "cpp",
+        "*.tcc": "cpp"
+    }
+}

@@ -1,0 +1,12 @@
+{
+	"files.associations": {
+		"vector": "cpp",
+		"map": "cpp",
+		"__bit_reference": "cpp",
+		"chrono": "cpp",
+		"limits": "cpp",
+		"random": "cpp",
+		"semaphore": "cpp",
+		"algorithm": "cpp"
+	}
+}
