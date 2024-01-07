@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Two Activities</string>
+    <string name="activity2_name">Second Activity</string>
+    <string name="text_header">Message Receivedw</string>
+    <string name="editText_main">Enter Your Message Here</string>
+    <string name="sditText_second">Relpy message</string>
+    <string name="button_second">Reply</string>
+    <string name="text_header_reply">Reply Received</string>
+</resources>

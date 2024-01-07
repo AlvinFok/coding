@@ -1,0 +1,4 @@
+#Tue May 07 22:19:00 GMT+08:00 2019
+base.0=D\:\\homework\\Android\\ScorekeeperEspresso\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DialogForAlert</string>
+    <string name="alet_title">Alert</string>
+    <string name="alert_message">Click OK to continue, or Cancel to stop:</string>
+</resources>

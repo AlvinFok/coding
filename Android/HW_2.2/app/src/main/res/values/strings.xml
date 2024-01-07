@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HW2.2</string>
+    <string name="count_number">0</string>
+    <string name="button_count">COUNT</string>
+</resources>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">TimeManger</string>
+    <string name="title_schedule">行程</string>
+    <string name="title_add">新增</string>
+    <string name="title_report">報表</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_report">ReportActivity</string>
+    <string name="title_activity_new_schedule">NewScheduleActivity</string>
+    
+    <string-array name="DoingWhat">
+        <item>工作</item>
+        <item>娛樂</item>
+        <item>學習</item>
+        <item>家庭</item>
+    </string-array>
+
+    <array name="image">
+        <item>@drawable/work</item>
+        <item>@drawable/entertainment</item>
+        <item>@drawable/learning</item>
+        <item>@drawable/family</item>
+    </array>
+
+
+</resources>
