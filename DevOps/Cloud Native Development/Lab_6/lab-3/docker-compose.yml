@@ -1,0 +1,40 @@
+version: '3.2'
+services:
+  my-prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./alert-rules.yml:/etc/prometheus/alert-rules.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--log.level=debug'
+    ports:
+      # Map port 9090 inside the container to port 19090 on the host
+      - 19090:9090
+
+  my-alertmanager:
+    image: bitnami/alertmanager:0.24.0
+    volumes:
+      - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+      - '--log.level=debug'
+    ports:
+      # Map port 9093 inside the container to port 19093 on the host
+      - 19093:9093
+
+  my-grafana:
+    image: grafana/grafana:8.3.6
+    volumes:
+      - ./datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+    depends_on:
+      - my-prometheus
+    ports:
+      - 13000:3000
+  my-app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 8000:8000
+      - 8123:8123

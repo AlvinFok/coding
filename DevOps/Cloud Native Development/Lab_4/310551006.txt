@@ -1,0 +1,23 @@
+1
+User Story
+    As a driver
+    I would like to choose which passenger I serve
+    so that I am happy for I can choose the passenger
+
+Acceptance Criteria 1
+    Given:
+        More than one passengers requires service
+    When:
+        Driver login the app
+    Then:
+        Driver get a simple summary of all requires
+        
+
+Acceptance Criteria 2
+    Given:
+        Driver accept one of those order
+    When:
+        The order establish successfully
+    Then:
+        Driver get more detail of the order(gps, special requirement...)
+        and go get the passenger
