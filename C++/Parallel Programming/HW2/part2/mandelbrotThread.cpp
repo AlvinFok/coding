@@ -31,7 +31,6 @@ void workerThreadStart(WorkerArgs *const args)
 {
 
     // clock_t begin = clock();
-    // TODO FOR PP STUDENTS: Implement the body of the worker
     // thread here. Each thread should make a call to mandelbrotSerial()
     // to compute a part of the output image.  For example, in a
     // program that uses two threads, thread 0 could compute the top
@@ -77,10 +76,8 @@ void mandelbrotThread(
     int count = 0;
     for (int i = 0; i < numThreads; i++)
     {
-        // TODO FOR PP STUDENTS: You may or may not wish to modify
         // the per-thread arguments here.  The code below copies the
         // same arguments for each thread
-        // printf("i = %d\n",i);
         args[i].x0 = x0;
         args[i].y0 = y0;
         args[i].x1 = x1;
@@ -94,7 +91,6 @@ void mandelbrotThread(
         args[i].threadId = i;
         count++;
     }
-    // printf("%d\n",count);
     // Spawn the worker threads.  Note that only numThreads-1 std::threads
     // are created and the main application thread is used as a worker
     // as well.
@@ -106,7 +102,6 @@ void mandelbrotThread(
     
     for (int i = 1; i < numThreads; i++)
     {
-        // printf("%d\n", j+i);
         workers[i] = std::thread(workerThreadStart, &args[i]);
         // std::async(std::launch::async, workerThreadStart, &args[i]);
         printf("%d\n",workers[i].get_id());

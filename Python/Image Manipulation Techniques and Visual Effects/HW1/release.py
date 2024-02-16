@@ -37,13 +37,13 @@ def knn_matting(image, trimap, color_space='RGB', my_lambda=100):
     else:
         feature = np.append(np.reshape(image, (m*n, c)).T, [a, b] /np.sqrt(m*m + n*n), axis = 0 ).T#X(i)
     ####################################################
-    # TODO: find KNN for the given image
+    #       find KNN for the given image
     ####################################################
     nbrs = sklearn.neighbors.NearestNeighbors(n_neighbors=nbrs_num, n_jobs=-1).fit(feature)
     knn_indices = nbrs.kneighbors(feature)[1]#Find X(j) with KNN
 
     ####################################################
-    # TODO: compute the affinity matrix A
+    #       compute the affinity matrix A
     #       and all other stuff needed
     ####################################################
     print("Calculating affinity matrix A")
@@ -54,7 +54,7 @@ def knn_matting(image, trimap, color_space='RGB', my_lambda=100):
     A = scipy.sparse.coo_matrix((kernel, (row_index, col_index)), shape=(m*n, m*n))
     # print(type(A))
     ####################################################
-    # TODO: solve for the linear system
+    #       solve for the linear system
     #       note that you may encounter en error
     #       if no exact solution exists
     ####################################################
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     alpha = alpha * 255
     cv2.imwrite(f"./alpha/{image_Name}_{args.color_space}.png", alpha)
     ####################################################
-    # TODO: pick up your own background image, 
+    #       pick up your own background image, 
     #       and merge it with the foreground
     ####################################################
     alpha = cv2.imread(f"./alpha/{image_Name}_{args.color_space}.png", cv2.IMREAD_GRAYSCALE)
@@ -113,9 +113,3 @@ if __name__ == '__main__':
     
     
     
-
-
-
-# %%
-
-# %%
